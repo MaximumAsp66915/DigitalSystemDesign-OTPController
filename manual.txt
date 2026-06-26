@@ -1,0 +1,38 @@
+===========================================================================
+                  OTP CONTROLLER GIT MANUAL (Automated)
+===========================================================================
+
+[PREREQUISITE]
+Make sure your automation scripts are executable before first use. Run:
+    chmod +x update.sh push.sh
+
+---------------------------------------------------------------------------
+1. HOW TO UPDATE THE LOCAL FOLDER FROM GITHUB
+---------------------------------------------------------------------------
+This pulls down remote changes and merges them into your local environment 
+without overwriting or deleting your untracked files.
+
+Using the Script (Recommended):
+    ./update.sh
+
+Using Raw Git:
+    git pull origin main
+
+---------------------------------------------------------------------------
+2. HOW TO PUSH THE FOLDER & SUBDIRECTORIES TO GITHUB
+---------------------------------------------------------------------------
+Git tracks file changes across your entire root directory and all internal 
+subdirectories (design/, verification/, docs/, etc.) simultaneously.
+
+Using the Script (Recommended):
+    ./push.sh "Your descriptive commit message here"
+
+Using Raw Git:
+    git add .
+    git commit -m "Your descriptive commit message here"
+    git push origin main
+
+*Note on Empty Subdirectories: Git does not track completely empty folders. 
+If you want an empty subdirectory structure visible on GitHub, place an empty 
+hidden file named '.gitkeep' inside that folder, then run the push command.
+===========================================================================

@@ -1,5 +1,0 @@
-xrun -gui -ieee1364 -sv -disable_sem2009 -vtimescale 1ps/1ps -access +rwc -top tb_cdc \
-../rtl_sources/assign6/tb_cdc.v 
-
-
-

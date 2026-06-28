@@ -1,1 +1,0 @@
-`define PATTERN 32'hF0F0_F0F0

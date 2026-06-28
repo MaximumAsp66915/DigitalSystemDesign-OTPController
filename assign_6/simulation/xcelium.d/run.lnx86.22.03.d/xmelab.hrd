@@ -1,0 +1,9 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-DISABLE_SEM2009
+-ACCESS
++rwc
+
+tb_cdc

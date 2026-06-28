@@ -1,0 +1,10 @@
+settings.v
+/home/grp8_dsd/workspace/assign_6/simulation/settings.v
+../rtl_sources/tsmc18.v
+/home/grp8_dsd/workspace/assign_6/rtl_sources/tsmc18.v
+../synthesis/synout/assign6/transmitter_postsyn.v
+/home/grp8_dsd/workspace/assign_6/synthesis/synout/assign6/transmitter_postsyn.v
+../synthesis/synout/assign6/receiver_postsyn.v
+/home/grp8_dsd/workspace/assign_6/synthesis/synout/assign6/receiver_postsyn.v
+../synthesis/synout/assign6/synchronizer_postsyn.v
+/home/grp8_dsd/workspace/assign_6/synthesis/synout/assign6/synchronizer_postsyn.v

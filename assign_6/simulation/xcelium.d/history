@@ -1,0 +1,19 @@
+//
+// File created by:  xrun
+// Do not modify this file
+
+s1::(27Jun2026:16:03:42):( xrun -gui -ieee1364 -sv -disable_sem2009 -vtimescale 1ps/1ps -access +rwc -top tb_cdc ../rtl_sources/assign6/tb_cdc.v )
+s2::(27Jun2026:16:29:57):( xrun -gui -ieee1364 -sv -disable_sem2009 -vtimescale 1ps/1ps -access +rwc -top tb_cdc ../rtl_sources/assign6/tb_cdc.v "-s " )
+s3::(27Jun2026:16:31:45):( xrun -gui -ieee1364 -sv -disable_sem2009 -vtimescale 1ps/1ps -access +rwc -top tb_cdc ../rtl_sources/assign6/tb_cdc.v -s )
+s4::(27Jun2026:16:34:59):( xrun -gui -ieee1364 -sv -disable_sem2009 -vtimescale 1ps/1ps -access +rwc -top tb_cdc ../rtl_sources/assign6/tb_cdc.v -s )
+s5::(27Jun2026:16:37:42):( xrun -gui -ieee1364 -sv -disable_sem2009 -vtimescale 1ps/1ps -access +rwc -top tb_cdc ../rtl_sources/assign6/tb_cdc.v -s )
+s6::(27Jun2026:16:38:04):( xrun -gui -ieee1364 -sv -disable_sem2009 -vtimescale 1ps/1ps -access +rwc -top tb_cdc ../rtl_sources/assign6/tb_cdc.v -s )
+s7::(27Jun2026:16:38:37):( xrun -gui -ieee1364 -sv -disable_sem2009 -vtimescale 1ps/1ps -access +rwc -top tb_cdc ../rtl_sources/assign6/tb_cdc.v -s )
+s8::(27Jun2026:16:39:08):( xrun -gui -ieee1364 -sv -disable_sem2009 -vtimescale 1ps/1ps -access +rwc -top tb_cdc ../rtl_sources/assign6/tb_cdc.v -s )
+s9::(27Jun2026:16:42:33):( xrun -gui -ieee1364 -sv -disable_sem2009 -vtimescale 1ps/1ps -access +rwc -top tb_cdc ../rtl_sources/assign6/tb_cdc.v -s )
+s10::(27Jun2026:16:43:07):( xrun -gui -ieee1364 -sv -disable_sem2009 -vtimescale 1ps/1ps -access +rwc -top tb_cdc ../rtl_sources/assign6/tb_cdc.v -s )
+s11::(27Jun2026:16:45:14):( xrun -gui -ieee1364 -sv -disable_sem2009 -vtimescale 1ps/1ps -access +rwc -top tb_cdc ../rtl_sources/assign6/tb_cdc.v -s )
+s12::(27Jun2026:16:48:13):( xrun -gui -ieee1364 -sv -disable_sem2009 -vtimescale 1ps/1ps -access +rwc -top tb_cdc ../rtl_sources/assign6/tb_cdc.v -s )
+s13::(27Jun2026:16:49:57):( xrun -gui -ieee1364 -sv -disable_sem2009 -vtimescale 1ps/1ps -access +rwc -top tb_cdc ../rtl_sources/assign6/tb_cdc.v -s )
+s14::(27Jun2026:16:57:30):( xrun -gui -ieee1364 -sv -disable_sem2009 -vtimescale 1ps/1ps -access +rwc -top tb_cdc ../rtl_sources/assign6/tb_cdc.v -s )
+s15::(27Jun2026:17:03:26):( xrun -gui -ieee1364 -sv -disable_sem2009 -vtimescale 1ps/1ps -access +rwc -top tb_cdc ../rtl_sources/assign6/tb_cdc.v -s )

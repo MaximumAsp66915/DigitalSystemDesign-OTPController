@@ -1,0 +1,399 @@
+xrun: 22.03-s001: (c) Copyright 1995-2022 Cadence Design Systems, Inc.
+TOOL:	xrun	22.03-s001: Started on Jun 27, 2026 at 17:03:26 +0330
+xrun
+	-gui
+	-ieee1364
+	-sv
+	-disable_sem2009
+	-vtimescale 1ps/1ps
+	-access +rwc
+	-top tb_cdc
+	../rtl_sources/assign6/tb_cdc.v
+	-s
+Recompiling... reason: file '../rtl_sources/assign6/tb_cdc.v' is newer than expected.
+	expected: Sat Jun 27 16:57:09 2026
+	actual:   Sat Jun 27 17:03:15 2026
+file: ../rtl_sources/assign6/tb_cdc.v
+	module worklib.tb_cdc:v
+		errors: 0, warnings: 0
+	Elaborating the design hierarchy:
+		Caching library 'worklib' ....... Done
+	Top level design units:
+		tb_cdc
+	Reading SDF file from location "../synthesis/synout/assign6/receiver_postsyn.sdf"
+	Reading SDF file from location "../synthesis/synout/assign6/transmitter_postsyn.sdf"
+	Reading SDF file from location "../synthesis/synout/assign6/synchronizer_postsyn.sdf"
+	Annotating SDF timing data:
+		Compiled SDF file:     receiver_postsyn.sdf.X
+		Log file:              
+		Backannotation scope:  tb_cdc.u_rx_syn
+		Configuration file:    
+		MTM control:           MAXIMUM
+		Scale factors:         
+		Scale type:            
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (117) (0)) of instance tb_cdc.u_rx_syn.\bit_cnt_reg[6]  of module DFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 26>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (117) (0)) of instance tb_cdc.u_rx_syn.\bit_cnt_reg[5]  of module DFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 47>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (117) (0)) of instance tb_cdc.u_rx_syn.\bit_cnt_reg[0]  of module DFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 68>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (117) (0)) of instance tb_cdc.u_rx_syn.\bit_cnt_reg[3]  of module DFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 103>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.\rx_data_reg[19]  of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 126>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.\rx_data_reg[5]  of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 153>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.\rx_data_reg[6]  of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 180>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.\rx_data_reg[3]  of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 207>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.\rx_data_reg[7]  of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 234>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.\rx_data_reg[8]  of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 261>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.\rx_data_reg[10]  of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 288>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.\rx_data_reg[2]  of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 315>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.\rx_data_reg[12]  of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 342>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.\rx_data_reg[13]  of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 369>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.\rx_data_reg[14]  of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 396>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.\rx_data_reg[15]  of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 423>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.\rx_data_reg[11]  of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 450>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.\rx_data_reg[16]  of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 477>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.\rx_data_reg[17]  of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 504>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.\rx_data_reg[18]  of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 531>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.\rx_data_reg[0]  of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 558>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.\rx_data_reg[20]  of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 585>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.\rx_data_reg[21]  of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 612>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.\rx_data_reg[22]  of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 639>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.\rx_data_reg[9]  of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 666>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.\rx_data_reg[24]  of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 693>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.\rx_data_reg[25]  of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 720>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.\rx_data_reg[26]  of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 747>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.\rx_data_reg[27]  of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 774>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.\rx_data_reg[28]  of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 801>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.\rx_data_reg[1]  of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 828>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.\rx_data_reg[23]  of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 855>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.\rx_data_reg[30]  of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 882>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.\rx_data_reg[31]  of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 909>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.\rx_data_reg[29]  of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 936>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (117) (0)) of instance tb_cdc.u_rx_syn.\bit_cnt_reg[2]  of module DFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 961>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.\rx_data_reg[4]  of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 984>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (117) (0)) of instance tb_cdc.u_rx_syn.\bit_cnt_reg[4]  of module DFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 1009>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (117) (0)) of instance tb_cdc.u_rx_syn.\bit_cnt_reg[1]  of module DFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 1030>.
+xmelab: *W,SDFNDP: Annotation resulted in a negative delay value or pulse limit to specify path or interconnect delay ((IOPATH A Y)), setting to 0 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 1162>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_rx_syn.data_valid_reg of module SDFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 1243>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (117) (0)) of instance tb_cdc.u_rx_syn.rx_bit_org_reg of module DFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 1268>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (117) (0)) of instance tb_cdc.u_rx_syn.tx_data_valid_org_reg of module DFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 1395>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (117) (0)) of instance tb_cdc.u_rx_syn.tx_valid_2nd_reg of module DFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 1466>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (117) (0)) of instance tb_cdc.u_rx_syn.rx_bit_2nd_reg of module DFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 1487>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (117) (0)) of instance tb_cdc.u_rx_syn.tx_valid_1st_reg of module DFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 1520>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (117) (0)) of instance tb_cdc.u_rx_syn.rx_bit_1st_reg of module DFFRHQX1 <../synthesis/synout/assign6/receiver_postsyn.sdf, line 1553>.
+	Annotating SDF timing data:
+		Compiled SDF file:     transmitter_postsyn.sdf.X
+		Log file:              
+		Backannotation scope:  tb_cdc.u_tx_syn
+		Configuration file:    
+		MTM control:           MAXIMUM
+		Scale factors:         
+		Scale type:            
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.\tx_out_reg_reg[0]  of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 49>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.\tx_out_reg_reg[1]  of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 82>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.\tx_out_reg_reg[2]  of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 115>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.\tx_out_reg_reg[3]  of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 148>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.\tx_out_reg_reg[4]  of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 181>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.\tx_out_reg_reg[5]  of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 214>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.\tx_out_reg_reg[6]  of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 247>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.\tx_out_reg_reg[7]  of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 280>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.\tx_out_reg_reg[8]  of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 313>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.\tx_out_reg_reg[9]  of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 346>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.\tx_out_reg_reg[10]  of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 379>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.\tx_out_reg_reg[11]  of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 412>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.\tx_out_reg_reg[12]  of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 445>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.\tx_out_reg_reg[13]  of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 478>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.\tx_out_reg_reg[14]  of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 511>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.\tx_out_reg_reg[15]  of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 544>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.\tx_out_reg_reg[16]  of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 577>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.\tx_out_reg_reg[17]  of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 610>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.\tx_out_reg_reg[18]  of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 643>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.\tx_out_reg_reg[19]  of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 676>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.\tx_out_reg_reg[20]  of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 709>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.\tx_out_reg_reg[21]  of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 742>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.\tx_out_reg_reg[22]  of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 775>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.\tx_out_reg_reg[23]  of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 808>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.\tx_out_reg_reg[24]  of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 841>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.\tx_out_reg_reg[25]  of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 874>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.\tx_out_reg_reg[26]  of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 907>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.\tx_out_reg_reg[27]  of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 940>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.\tx_out_reg_reg[28]  of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 973>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.\tx_out_reg_reg[29]  of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 1006>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (117) (0)) of instance tb_cdc.u_tx_syn.\bit_cnt_reg[4]  of module DFFRHQX1 <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 1027>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (117) (0)) of instance tb_cdc.u_tx_syn.\bit_cnt_reg[3]  of module DFFRHQX1 <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 1060>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.\tx_out_reg_reg[30]  of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 1115>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (117) (0)) of instance tb_cdc.u_tx_syn.\bit_cnt_reg[5]  of module DFFRHQX1 <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 1136>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (117) (0)) of instance tb_cdc.u_tx_syn.\bit_cnt_reg[2]  of module DFFRHQX1 <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 1157>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (117) (0)) of instance tb_cdc.u_tx_syn.\bit_cnt_reg[1]  of module DFFRHQX1 <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 1196>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (114) (0)) of instance tb_cdc.u_tx_syn.\bit_cnt_reg[0]  of module SDFFRHQX1 <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 1259>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.\tx_out_reg_reg[31]  of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 1318>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_tx_syn.tx_data_valid_reg of module DFFRHQXL <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 1339>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (63) (0)) of instance tb_cdc.u_tx_syn.load_reg of module DFFRX1 <../synthesis/synout/assign6/transmitter_postsyn.sdf, line 1386>.
+	Annotating SDF timing data:
+		Compiled SDF file:     synchronizer_postsyn.sdf.X
+		Log file:              
+		Backannotation scope:  tb_cdc.u_sync_syn1
+		Configuration file:    
+		MTM control:           MAXIMUM
+		Scale factors:         
+		Scale type:            
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_sync_syn1.sync_ff2_reg of module DFFRHQXL <../synthesis/synout/assign6/synchronizer_postsyn.sdf, line 26>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (117) (0)) of instance tb_cdc.u_sync_syn1.sync_ff1_reg of module DFFRHQX1 <../synthesis/synout/assign6/synchronizer_postsyn.sdf, line 47>.
+	Annotating SDF timing data:
+		Compiled SDF file:     synchronizer_postsyn.sdf.X
+		Log file:              
+		Backannotation scope:  tb_cdc.u_sync_syn2
+		Configuration file:    
+		MTM control:           MAXIMUM
+		Scale factors:         
+		Scale type:            
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (102) (0)) of instance tb_cdc.u_sync_syn2.sync_ff2_reg of module DFFRHQXL <../synthesis/synout/assign6/synchronizer_postsyn.sdf, line 26>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge RN) (posedge CK) (117) (0)) of instance tb_cdc.u_sync_syn2.sync_ff1_reg of module DFFRHQX1 <../synthesis/synout/assign6/synchronizer_postsyn.sdf, line 47>.
+	Annotation completed with 0 Errors and 91 Warnings
+	SDF statistics: 
+		 No. of Pathdelays = 414     	 No. of Disabled Pathdelays = 0        Annotated = 100.00% (414/414) 
+		 No. of Tchecks    = 684     	 No. of Disabled Tchecks    = 0        Annotated = 86.84% (594/684) 
+				        Total(T) 	   Disabled(D) 	    Annotated(A)	  Percentage(A/(T-D))
+		 Path Delays	           414	             0	               414	                100.00
+		      $width	           272	             0	               272	                100.00
+		  $setuphold	           412	             0	               322	                 78.16
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.tb_cdc:v <0x63c4d25d>
+			streams:  10, words:  7054
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                  Instances  Unique
+		Modules:                180      26
+		UDPs:                   126       2
+		Primitives:             672       7
+		Timing outputs:         176      13
+		Registers:               99      12
+		Scalar wires:           586       -
+		Always blocks:            3       2
+		Initial blocks:           7       6
+		Final blocks:             1       1
+		Cont. assignments:        1       3
+		Pseudo assignments:       4       3
+		Timing checks:         1096     264
+		Interconnect:           538       -
+		Simulation timescale:   1fs
+	Writing initial simulation snapshot: worklib.tb_cdc:v
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+SVSEED default: 1
+xcelium> 
+xcelium> source /home/cad/cadence/XCELIUM220/tools/xcelium/files/xmsimrc
+xcelium> 
+-------------------------------------
+Relinquished control to SimVision...
+# Restoring simulation environment...
+xcelium> input -quiet .reinvoke.sim
+xcelium> file delete .reinvoke.sim
+xcelium> probe -create -shm tb_cdc.u_sync_syn1.async_in tb_cdc.u_sync_syn1.clk tb_cdc.u_sync_syn1.reset_n tb_cdc.u_sync_syn1.resolving tb_cdc.u_sync_syn1.sync_ff1 tb_cdc.u_sync_syn1.sync_out tb_cdc.u_sync_syn1.sync_out_resolved tb_cdc.u_sync_syn2.async_in tb_cdc.u_sync_syn2.clk tb_cdc.u_sync_syn2.reset_n tb_cdc.u_sync_syn2.resolving tb_cdc.u_sync_syn2.sync_ff1 tb_cdc.u_sync_syn2.sync_out tb_cdc.u_sync_syn2.sync_out_resolved
+Created probe 3
+xcelium> run
+SDF annotation attempted (MAXIMUM delays).
+ERROR at time 543489000: Received 0x00000000, Expected 0xf0f0f0f0
+ERROR at time 545491000: Received 0x00000000, Expected 0xf0f0f0f0
+ERROR at time 547492000: Received 0x00000000, Expected 0xf0f0f0f0
+ERROR at time 549494000: Received 0x00000000, Expected 0xf0f0f0f0
+CORRECT at time 679611000: Received 0xf0f0f0f0
+CORRECT at time 681613000: Received 0xf0f0f0f0
+CORRECT at time 683615000: Received 0xf0f0f0f0
+CORRECT at time 685617000: Received 0xf0f0f0f0
+CORRECT at time 815734000: Received 0xf0f0f0f0
+CORRECT at time 817735000: Received 0xf0f0f0f0
+CORRECT at time 819737000: Received 0xf0f0f0f0
+CORRECT at time 821739000: Received 0xf0f0f0f0
+CORRECT at time 951856000: Received 0xf0f0f0f0
+CORRECT at time 953858000: Received 0xf0f0f0f0
+CORRECT at time 955860000: Received 0xf0f0f0f0
+CORRECT at time 957861000: Received 0xf0f0f0f0
+CORRECT at time 1087978000: Received 0xf0f0f0f0
+CORRECT at time 1089980000: Received 0xf0f0f0f0
+CORRECT at time 1091982000: Received 0xf0f0f0f0
+CORRECT at time 1093984000: Received 0xf0f0f0f0
+CORRECT at time 1224101000: Received 0xf0f0f0f0
+CORRECT at time 1226103000: Received 0xf0f0f0f0
+CORRECT at time 1228104000: Received 0xf0f0f0f0
+CORRECT at time 1230106000: Received 0xf0f0f0f0
+CORRECT at time 1360223000: Received 0xf0f0f0f0
+CORRECT at time 1362225000: Received 0xf0f0f0f0
+CORRECT at time 1364227000: Received 0xf0f0f0f0
+CORRECT at time 1366229000: Received 0xf0f0f0f0
+CORRECT at time 1496346000: Received 0xf0f0f0f0
+CORRECT at time 1498347000: Received 0xf0f0f0f0
+CORRECT at time 1500349000: Received 0xf0f0f0f0
+CORRECT at time 1502351000: Received 0xf0f0f0f0
+CORRECT at time 1632468000: Received 0xf0f0f0f0
+CORRECT at time 1634470000: Received 0xf0f0f0f0
+CORRECT at time 1636472000: Received 0xf0f0f0f0
+CORRECT at time 1638473000: Received 0xf0f0f0f0
+CORRECT at time 1768590000: Received 0xf0f0f0f0
+CORRECT at time 1770592000: Received 0xf0f0f0f0
+CORRECT at time 1772594000: Received 0xf0f0f0f0
+CORRECT at time 1774596000: Received 0xf0f0f0f0
+
+Warning!  Timing violation
+           $setuphold<setup>( posedge CK &&& (flag == 1):1859162630 FS, negedge D:1859161320 FS,  210 : 210 PS,  0 : 0 FS );
+            File: ../rtl_sources/tsmc18.v, line = 7945
+           Scope: tb_cdc.u_sync_syn1.sync_ff1_reg
+            Time: 1859162630 FS
+
+
+Warning!  Timing violation
+           $setuphold<setup>( posedge CK &&& (flag == 1):1891191430 FS, negedge D:1891178600 FS,  210 : 210 PS,  0 : 0 FS );
+            File: ../rtl_sources/tsmc18.v, line = 7945
+           Scope: tb_cdc.u_sync_syn1.sync_ff1_reg
+            Time: 1891191430 FS
+
+CORRECT at time 1904713000: Received 0xf0f0f0f0
+CORRECT at time 1906715000: Received 0xf0f0f0f0
+CORRECT at time 1908716000: Received 0xf0f0f0f0
+CORRECT at time 1910718000: Received 0xf0f0f0f0
+
+Warning!  Timing violation
+           $setuphold<setup>( posedge CK &&& (flag == 1):1931227430 FS, negedge D:1931200200 FS,  210 : 210 PS,  0 : 0 FS );
+            File: ../rtl_sources/tsmc18.v, line = 7945
+           Scope: tb_cdc.u_sync_syn1.sync_ff1_reg
+            Time: 1931227430 FS
+
+
+Warning!  Timing violation
+           $setuphold<setup>( posedge CK &&& (flag == 1):1947241830 FS, posedge D:1947238840 FS,  126 : 126 PS,  0 : 0 FS );
+            File: ../rtl_sources/tsmc18.v, line = 7944
+           Scope: tb_cdc.u_sync_syn1.sync_ff1_reg
+            Time: 1947241830 FS
+
+
+Warning!  Timing violation
+           $setuphold<setup>( posedge CK &&& (flag == 1):1963256230 FS, negedge D:1963217480 FS,  210 : 210 PS,  0 : 0 FS );
+            File: ../rtl_sources/tsmc18.v, line = 7945
+           Scope: tb_cdc.u_sync_syn1.sync_ff1_reg
+            Time: 1963256230 FS
+
+
+Warning!  Timing violation
+           $setuphold<setup>( posedge CK &&& (flag == 1):1979270630 FS, posedge D:1979256120 FS,  126 : 126 PS,  0 : 0 FS );
+            File: ../rtl_sources/tsmc18.v, line = 7944
+           Scope: tb_cdc.u_sync_syn1.sync_ff1_reg
+            Time: 1979270630 FS
+
+
+Warning!  Timing violation
+           $setuphold<setup>( posedge CK &&& (flag == 1):1995285030 FS, negedge D:1995234760 FS,  210 : 210 PS,  0 : 0 FS );
+            File: ../rtl_sources/tsmc18.v, line = 7945
+           Scope: tb_cdc.u_sync_syn1.sync_ff1_reg
+            Time: 1995285030 FS
+
+
+Warning!  Timing violation
+           $setuphold<setup>( posedge CK &&& (flag == 1):2011299430 FS, posedge D:2011273400 FS,  126 : 126 PS,  0 : 0 FS );
+            File: ../rtl_sources/tsmc18.v, line = 7944
+           Scope: tb_cdc.u_sync_syn1.sync_ff1_reg
+            Time: 2011299430 FS
+
+
+Warning!  Timing violation
+           $setuphold<setup>( posedge CK &&& (flag == 1):2027313830 FS, negedge D:2027252040 FS,  210 : 210 PS,  0 : 0 FS );
+            File: ../rtl_sources/tsmc18.v, line = 7945
+           Scope: tb_cdc.u_sync_syn1.sync_ff1_reg
+            Time: 2027313830 FS
+
+
+Warning!  Timing violation
+           $setuphold<setup>( posedge CK &&& (flag == 1):2031317430 FS, negedge D:2031317200 FS,  210 : 210 PS,  0 : 0 FS );
+            File: ../rtl_sources/tsmc18.v, line = 7945
+           Scope: tb_cdc.u_sync_syn2.sync_ff1_reg
+            Time: 2031317430 FS
+
+CORRECT at time 2040835000: Received 0xf0f0f0f0
+CORRECT at time 2042837000: Received 0xf0f0f0f0
+CORRECT at time 2044839000: Received 0xf0f0f0f0
+CORRECT at time 2046841000: Received 0xf0f0f0f0
+
+Warning!  Timing violation
+           $setuphold<setup>( posedge CK &&& (flag == 1):2051335430 FS, posedge D:2051295 PS,  126 : 126 PS,  0 : 0 FS );
+            File: ../rtl_sources/tsmc18.v, line = 7944
+           Scope: tb_cdc.u_sync_syn1.sync_ff1_reg
+            Time: 2051335430 FS
+
+
+Warning!  Timing violation
+           $setuphold<setup>( posedge CK &&& (flag == 1):2067349830 FS, negedge D:2067273640 FS,  210 : 210 PS,  0 : 0 FS );
+            File: ../rtl_sources/tsmc18.v, line = 7945
+           Scope: tb_cdc.u_sync_syn1.sync_ff1_reg
+            Time: 2067349830 FS
+
+
+Warning!  Timing violation
+           $setuphold<setup>( posedge CK &&& (flag == 1):2083364230 FS, posedge D:2083312280 FS,  126 : 126 PS,  0 : 0 FS );
+            File: ../rtl_sources/tsmc18.v, line = 7944
+           Scope: tb_cdc.u_sync_syn1.sync_ff1_reg
+            Time: 2083364230 FS
+
+
+Warning!  Timing violation
+           $setuphold<setup>( posedge CK &&& (flag == 1):2099378630 FS, negedge D:2099290920 FS,  210 : 210 PS,  0 : 0 FS );
+            File: ../rtl_sources/tsmc18.v, line = 7945
+           Scope: tb_cdc.u_sync_syn1.sync_ff1_reg
+            Time: 2099378630 FS
+
+
+Warning!  Timing violation
+           $setuphold<setup>( posedge CK &&& (flag == 1):2115393030 FS, posedge D:2115329560 FS,  126 : 126 PS,  0 : 0 FS );
+            File: ../rtl_sources/tsmc18.v, line = 7944
+           Scope: tb_cdc.u_sync_syn1.sync_ff1_reg
+            Time: 2115393030 FS
+
+
+Warning!  Timing violation
+           $setuphold<setup>( posedge CK &&& (flag == 1):2131407430 FS, negedge D:2131308200 FS,  210 : 210 PS,  0 : 0 FS );
+            File: ../rtl_sources/tsmc18.v, line = 7945
+           Scope: tb_cdc.u_sync_syn1.sync_ff1_reg
+            Time: 2131407430 FS
+
+
+Warning!  Timing violation
+           $setuphold<setup>( posedge CK &&& (flag == 1):2147421830 FS, posedge D:2147346840 FS,  126 : 126 PS,  0 : 0 FS );
+            File: ../rtl_sources/tsmc18.v, line = 7944
+           Scope: tb_cdc.u_sync_syn1.sync_ff1_reg
+            Time: 2147421830 FS
+
+
+Warning!  Timing violation
+           $setuphold<setup>( posedge CK &&& (flag == 1):2163436230 FS, negedge D:2163325480 FS,  210 : 210 PS,  0 : 0 FS );
+            File: ../rtl_sources/tsmc18.v, line = 7945
+           Scope: tb_cdc.u_sync_syn1.sync_ff1_reg
+            Time: 2163436230 FS
+
+
+Warning!  Timing violation
+           $setuphold<setup>( posedge CK &&& (flag == 1):2167439830 FS, negedge D:2167390640 FS,  210 : 210 PS,  0 : 0 FS );
+            File: ../rtl_sources/tsmc18.v, line = 7945
+           Scope: tb_cdc.u_sync_syn2.sync_ff1_reg
+            Time: 2167439830 FS
+
+
+Warning!  Timing violation
+           $setuphold<setup>( posedge CK &&& (flag == 1):2171443430 FS, posedge D:2171406800 FS,  126 : 126 PS,  0 : 0 FS );
+            File: ../rtl_sources/tsmc18.v, line = 7944
+           Scope: tb_cdc.u_sync_syn2.sync_ff1_reg
+            Time: 2171443430 FS
+
+CORRECT at time 2176958000: Received 0xf0f0f0f0
+CORRECT at time 2178959000: Received 0xf0f0f0f0
+CORRECT at time 2180961000: Received 0xf0f0f0f0
+CORRECT at time 2182963000: Received 0xf0f0f0f0
+
+Warning!  Timing violation
+           $setuphold<setup>( posedge CK &&& (flag == 1):2187457830 FS, posedge D:2187368440 FS,  126 : 126 PS,  0 : 0 FS );
+            File: ../rtl_sources/tsmc18.v, line = 7944
+           Scope: tb_cdc.u_sync_syn1.sync_ff1_reg
+            Time: 2187457830 FS
+
+Simulation finished.
+Total matches: 48
+Simulation complete via $finish(1) at time 2200370 PS + 0
+../rtl_sources/assign6/tb_cdc.v:161         $finish;
+xcelium> ^C
+xcelium> exit
+TOOL:	xrun	22.03-s001: Exiting on Jun 28, 2026 at 08:47:50 +0330  (total: 15:44:24)

@@ -1,5 +1,6 @@
 `default_nettype none
 `include "otp_map.vh"
+`include "settings.h"
 
 module otp_controller (
     input  wire        clk,

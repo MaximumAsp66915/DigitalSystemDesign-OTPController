@@ -1,3 +1,5 @@
+`include "settings.h"
+
 module crc16_ccitt (
     input  wire [15:0] crc_in,
     input  wire        data_in,

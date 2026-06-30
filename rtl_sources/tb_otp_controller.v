@@ -1,5 +1,6 @@
 `timescale 1ns/1ps
 `include "otp_map.vh"
+`include "settings.h"
 
 module tb_otp_controller;
     // Clock: 131.072 kHz  ->  period ≈ 7629 ns

@@ -189,7 +189,7 @@ module otp_controller (
                     addr <= addr + 1'b1;
             end
             else if (state == STATE_READ_PATCH) begin
-                if (addr < `PATCH1_HI) // Max patch address 251
+                if (addr < `PATCH1_HI) // Max patch address 254
                     addr <= addr + 1'b1;
             end
 

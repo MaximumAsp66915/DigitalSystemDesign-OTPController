@@ -13,9 +13,9 @@ module tb_otp_controller;
     reg rst_n;
 
     // OTP array interface (connects DUT ROM model)
-    wire        otp_data_out;       // ROM → DUT
-    wire  [7:0] otp_addr;           // DUT → ROM
-    wire        otp_read_en;        // DUT → ROM
+    wire        otp_data_out;       // ROM to DUT
+    wire  [7:0] otp_addr;           // DUT to ROM
+    wire        otp_read_en;        // DUT to ROM
 
     // Status
     wire        busy;

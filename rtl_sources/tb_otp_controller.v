@@ -3,7 +3,7 @@
 `include "settings.h"
 
 module tb_otp_controller;
-    // Clock: 131.072 kHz  ->  period ≈ 7629 ns
+    // Clock: 131.072 kHz  ->  period = 7629 ns
     localparam real CLK_PERIOD_NS = 7629.0;
 
     // Reset hold length (cycles)

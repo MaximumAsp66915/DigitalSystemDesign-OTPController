@@ -1,4 +1,15 @@
-/workspace(prev)
-/simulation/*
-/synthesis/*
-/assign_6/*
+/workspace
+
+# simulation outputs
+*.key
+*.log
+*.sdf.X
+*.history
+/simulation/waves.shm
+/simulation/xcelium.d
+
+# synthesis outputs
+
+
+# MacOS files
+.DS_store

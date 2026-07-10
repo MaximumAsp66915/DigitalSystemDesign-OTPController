@@ -1,8 +1,9 @@
 `timescale 1ns/1ps
 `include "otp_map.vh"
+`include "settings.h"
 
 module tb_otp_controller;
-    // Clock: 131.072 kHz  ->  period ≈ 7629 ns
+    // Clock: 131.072 kHz  ->  period = 7629 ns
     localparam real CLK_PERIOD_NS = 7629.0;
 
     // Reset hold length (cycles)
@@ -12,9 +13,9 @@ module tb_otp_controller;
     reg rst_n;
 
     // OTP array interface (connects DUT ROM model)
-    wire        otp_data_out;       // ROM → DUT
-    wire  [7:0] otp_addr;           // DUT → ROM
-    wire        otp_read_en;        // DUT → ROM
+    wire        otp_data_out;       // ROM to DUT
+    wire  [7:0] otp_addr;           // DUT to ROM
+    wire        otp_read_en;        // DUT to ROM
 
     // Status
     wire        busy;

@@ -1,3 +1,4 @@
+`timescale 1ns/1ps
 `include "settings.h"
 
 module crc16_ccitt (

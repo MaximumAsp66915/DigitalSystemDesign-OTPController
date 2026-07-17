@@ -11,7 +11,8 @@ module otp_sim_rom (
     output reg        otp_data_out
 );
 
-    reg [255:0] otp_rom;
+    // reg [255:0] otp_rom;
+    reg otp_rom [0:255];
 
     always @(posedge clk or negedge rst_n) begin
         otp_data_out <= 1'b0;

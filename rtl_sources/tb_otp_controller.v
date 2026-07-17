@@ -104,7 +104,8 @@ module tb_otp_controller;
 
     // Load otp_mem from file
     initial begin
-        $readmemb("otp_image.mem", u_rom.otp_rom);
+        // $readmemb("otp_image.mem", u_rom.otp_rom);
+        $readmemb("../rtl_sources/otp_image.mem", u_rom.otp_rom);
     end
 
     // Drive otp_data_out via a small ROM model

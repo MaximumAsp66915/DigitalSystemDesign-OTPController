@@ -263,7 +263,7 @@ module tb_otp_controller;
     integer i;
 
     initial begin
-        $readmemh("otp_image.mem", golden_img);
+        $readmemh("../rtl_sources/otp_image.mem", golden_img);
 
         rst_n = 1'b0;
         for (i = 0; i <= 255; i = i + 1) addr_hit[i] = 1'b0;

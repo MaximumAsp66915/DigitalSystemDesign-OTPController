@@ -6,7 +6,7 @@
 module otp_sim_rom #(
     // --- FIX: file is now a parameter so a testbench can override it
     // (e.g. per-test-case images) without editing this file.
-    parameter ROM_FILE = "otp_image.mem"
+    parameter ROM_FILE = "../rtl_sources/otp_image.mem"
 ) (
     input  wire       clk,
     input  wire       rst_n,

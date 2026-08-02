@@ -56,6 +56,8 @@ module otp_controller (
     // that lines up with the ROM data valid on the same cycle.
     reg [7:0] addr_d;
     reg       ren_d;
+    // New register: pulses once after reset, consumed by IDLE->READ_BANK0 transition
+    reg start_pending;
 
     // Temporary field accumulation registers
     reg [14:0] tmp_ro_trim;
@@ -113,7 +115,7 @@ module otp_controller (
     // Block 2: Combinational Next State Logic
     always @(*) begin
         case (state)
-            STATE_IDLE:       next_state = STATE_READ_BANK0;
+            STATE_IDLE:       next_state = start_pending ? STATE_READ_BANK0 : STATE_IDLE;
             // Transition once the *delayed* address confirms the last
             // Bank0 bit (255) has actually been sampled, not merely issued.
             STATE_READ_BANK0: next_state = (ren_d && addr_d == 8'd255) ? STATE_READ_PATCH : STATE_READ_BANK0;
@@ -365,6 +367,13 @@ module otp_controller (
             end
 
         end
+    end
+
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n)
+            start_pending <= 1'b1;          // arm the one-shot start on reset
+        else if (state == STATE_IDLE && start_pending)
+            start_pending <= 1'b0;          // consumed once we actually leave IDLE
     end
 
 endmodule

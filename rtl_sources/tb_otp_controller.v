@@ -50,7 +50,7 @@ module tb_otp_controller;
     // "write once, read many" so poking the ROM's storage directly
     // between resets is the right way to model reprogramming a *fresh*
     // (simulated) part, not the real DUT under test.
-    otp_sim_rom #(.ROM_FILE("otp_image.mem")) u_rom (
+    otp_sim_rom #(.ROM_FILE("../rtl_sources/otp_image.mem")) u_rom (
         .clk          (clk),
         .rst_n        (rst_n),
         .otp_addr     (otp_addr),

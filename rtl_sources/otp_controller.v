@@ -48,6 +48,15 @@ module otp_controller (
     // Datapath & Control Registers
     reg [7:0] addr;
 
+    // --- FIX (pipeline skew): the sim ROM registers otp_data_out one cycle
+    // after otp_addr/otp_read_en are presented (see otp_sim_rom.v). The
+    // original code sampled otp_data_out using the *current* addr, which is
+    // off by one cycle from the address that data actually corresponds to.
+    // addr_d/ren_d re-create the address (and its qualifying read-enable)
+    // that lines up with the ROM data valid on the same cycle.
+    reg [7:0] addr_d;
+    reg       ren_d;
+
     // Temporary field accumulation registers
     reg [14:0] tmp_ro_trim;
     reg [15:0] tmp_tc1;
@@ -88,9 +97,15 @@ module otp_controller (
     );
 
     // Block 1: Sequential State Register
+    // --- FIX (reset behaviour): reset now lands in STATE_IDLE (busy=0)
+    // instead of jumping straight into STATE_READ_BANK0. This keeps busy/
+    // otp_read_en/otp_addr deasserted while rst_n is low, matching DRS 6.3.
+    // STATE_IDLE unconditionally advances to STATE_READ_BANK0 on the next
+    // clock, so the load sequence still starts automatically with no
+    // external trigger, one cycle after reset release.
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n)
-            state <= STATE_READ_BANK0; // FSM automatically starts the read sequence
+            state <= STATE_IDLE;
         else
             state <= next_state;
     end
@@ -98,9 +113,12 @@ module otp_controller (
     // Block 2: Combinational Next State Logic
     always @(*) begin
         case (state)
-            STATE_IDLE:       next_state = STATE_IDLE;
-            STATE_READ_BANK0: next_state = (addr == 8'd255)? STATE_READ_PATCH : STATE_READ_BANK0;
-            STATE_READ_PATCH: next_state = (addr == `PATCH1_HI)? STATE_APPLY : STATE_READ_PATCH;
+            STATE_IDLE:       next_state = STATE_READ_BANK0;
+            // Transition once the *delayed* address confirms the last
+            // Bank0 bit (255) has actually been sampled, not merely issued.
+            STATE_READ_BANK0: next_state = (ren_d && addr_d == 8'd255) ? STATE_READ_PATCH : STATE_READ_BANK0;
+            // Same idea for the last patch bit (PATCH1_HI).
+            STATE_READ_PATCH: next_state = (ren_d && addr_d == `PATCH1_HI) ? STATE_APPLY : STATE_READ_PATCH;
             STATE_APPLY:      next_state = STATE_DONE;
             STATE_DONE:       next_state = STATE_IDLE;
             default:          next_state = STATE_IDLE;
@@ -130,6 +148,8 @@ module otp_controller (
         if (!rst_n) begin
             // Reset datapath and control flags
             addr           <= 8'd0;
+            addr_d         <= 8'd0;
+            ren_d          <= 1'b0;
             crc_error      <= 1'b0;
             crc_reg        <= 16'hFFFF;
 
@@ -179,91 +199,97 @@ module otp_controller (
 
         end else begin
 
+            // --- FIX: keep a one-cycle-delayed copy of (addr, otp_read_en)
+            // so accumulation always indexes with the address that the
+            // currently-valid otp_data_out actually corresponds to.
+            addr_d <= addr;
+            ren_d  <= otp_read_en;
+
             // Address Counter Control
             if (state == STATE_IDLE) begin
                 addr <= 8'd0;
             end
             else if (state == STATE_READ_BANK0) begin
                 if (addr == 8'd255)
-                    addr <= `PATCH0_LO; // Jump to 196
+                    addr <= `PATCH0_LO; // Jump to start of Patch0
                 else
                     addr <= addr + 1'b1;
             end
             else if (state == STATE_READ_PATCH) begin
-                if (addr < `PATCH1_HI) // Max patch address 254
+                if (addr != `PATCH1_HI) // hold once the last patch address is reached
                     addr <= addr + 1'b1;
             end
 
-            // Data Accumulation
-            if (otp_read_en) begin
+            // Data Accumulation -- gated on ren_d / indexed by addr_d (see FIX above)
+            if (ren_d) begin
                 // Bank 0 Field Accumulation
-                if (addr >= `OTP_RO_TRIM_LO && addr <= `OTP_RO_TRIM_HI)
-                    tmp_ro_trim[addr - `OTP_RO_TRIM_LO] <= otp_data_out;
+                if (addr_d >= `OTP_RO_TRIM_LO && addr_d <= `OTP_RO_TRIM_HI)
+                    tmp_ro_trim[addr_d - `OTP_RO_TRIM_LO] <= otp_data_out;
 
-                if (addr >= `OTP_TC1_LO && addr <= `OTP_TC1_HI)
-                    tmp_tc1[addr - `OTP_TC1_LO] <= otp_data_out;
+                if (addr_d >= `OTP_TC1_LO && addr_d <= `OTP_TC1_HI)
+                    tmp_tc1[addr_d - `OTP_TC1_LO] <= otp_data_out;
 
-                if (addr >= `OTP_TC2_LO && addr <= `OTP_TC2_HI)
-                    tmp_tc2[addr - `OTP_TC2_LO] <= otp_data_out;
+                if (addr_d >= `OTP_TC2_LO && addr_d <= `OTP_TC2_HI)
+                    tmp_tc2[addr_d - `OTP_TC2_LO] <= otp_data_out;
 
-                if (addr >= `OTP_AGING_LO && addr <= `OTP_AGING_HI)
-                    tmp_aging[addr - `OTP_AGING_LO] <= otp_data_out;
+                if (addr_d >= `OTP_AGING_LO && addr_d <= `OTP_AGING_HI)
+                    tmp_aging[addr_d - `OTP_AGING_LO] <= otp_data_out;
 
-                if (addr >= `OTP_SKU_LO && addr <= `OTP_SKU_HI)
-                    tmp_sku[addr - `OTP_SKU_LO] <= otp_data_out;
+                if (addr_d >= `OTP_SKU_LO && addr_d <= `OTP_SKU_HI)
+                    tmp_sku[addr_d - `OTP_SKU_LO] <= otp_data_out;
 
-                if (addr >= `OTP_TEMP_TRIM_LO && addr <= `OTP_TEMP_TRIM_HI)
-                    tmp_temp_trim[addr - `OTP_TEMP_TRIM_LO] <= otp_data_out;
+                if (addr_d >= `OTP_TEMP_TRIM_LO && addr_d <= `OTP_TEMP_TRIM_HI)
+                    tmp_temp_trim[addr_d - `OTP_TEMP_TRIM_LO] <= otp_data_out;
 
-                if (addr >= `OTP_REV_LO && addr <= `OTP_REV_HI)
-                    tmp_rev[addr - `OTP_REV_LO] <= otp_data_out;
+                if (addr_d >= `OTP_REV_LO && addr_d <= `OTP_REV_HI)
+                    tmp_rev[addr_d - `OTP_REV_LO] <= otp_data_out;
 
-                if (addr >= `OTP_CFG_LO && addr <= `OTP_CFG_HI)
-                    tmp_cfg[addr - `OTP_CFG_LO] <= otp_data_out;
+                if (addr_d >= `OTP_CFG_LO && addr_d <= `OTP_CFG_HI)
+                    tmp_cfg[addr_d - `OTP_CFG_LO] <= otp_data_out;
 
-                if (addr >= `OTP_RP0_LO && addr <= `OTP_RP0_HI)
-                    tmp_ratio_p0[addr - `OTP_RP0_LO] <= otp_data_out;
+                if (addr_d >= `OTP_RP0_LO && addr_d <= `OTP_RP0_HI)
+                    tmp_ratio_p0[addr_d - `OTP_RP0_LO] <= otp_data_out;
 
-                if (addr >= `OTP_RP1_LO && addr <= `OTP_RP1_HI)
-                    tmp_ratio_p1[addr - `OTP_RP1_LO] <= otp_data_out;
+                if (addr_d >= `OTP_RP1_LO && addr_d <= `OTP_RP1_HI)
+                    tmp_ratio_p1[addr_d - `OTP_RP1_LO] <= otp_data_out;
 
-                if (addr >= `OTP_RP2_LO && addr <= `OTP_RP2_HI)
-                    tmp_ratio_p2[addr - `OTP_RP2_LO] <= otp_data_out;
+                if (addr_d >= `OTP_RP2_LO && addr_d <= `OTP_RP2_HI)
+                    tmp_ratio_p2[addr_d - `OTP_RP2_LO] <= otp_data_out;
 
-                if (addr >= `OTP_RP3_LO && addr <= `OTP_RP3_HI)
-                    tmp_ratio_p3[addr - `OTP_RP3_LO] <= otp_data_out;
+                if (addr_d >= `OTP_RP3_LO && addr_d <= `OTP_RP3_HI)
+                    tmp_ratio_p3[addr_d - `OTP_RP3_LO] <= otp_data_out;
 
-                if (addr >= `OTP_RP4_LO && addr <= `OTP_RP4_HI)
-                    tmp_ratio_p4[addr - `OTP_RP4_LO] <= otp_data_out;
+                if (addr_d >= `OTP_RP4_LO && addr_d <= `OTP_RP4_HI)
+                    tmp_ratio_p4[addr_d - `OTP_RP4_LO] <= otp_data_out;
 
-                if (addr >= `OTP_CRC_LO && addr <= `OTP_CRC_HI)
-                    tmp_crc_stored[addr - `OTP_CRC_LO] <= otp_data_out;
+                if (addr_d >= `OTP_CRC_LO && addr_d <= `OTP_CRC_HI)
+                    tmp_crc_stored[addr_d - `OTP_CRC_LO] <= otp_data_out;
 
                 // CRC-16 Calculation: Accumulate over bits 0 to 182
-                if (addr <= `OTP_CRC_DATA_HI)
+                if (addr_d <= `OTP_CRC_DATA_HI)
                     crc_reg <= crc_next_w;
 
                 // Patch 0 Accumulation
-                if (addr >= `PATCH0_LO && addr <= `PATCH0_HI) begin
-                    if ((addr - `PATCH0_LO) <= `PATCH_TAG_HI)
-                        patch0_tag[addr - `PATCH0_LO] <= otp_data_out;
-                    else if ((addr - `PATCH0_LO) <= `PATCH_DATA_HI)
-                        patch0_data[(addr - `PATCH0_LO) - `PATCH_DATA_LO] <= otp_data_out;
-                    else if ((addr - `PATCH0_LO) <= `PATCH_ID_HI)
-                        patch0_id[(addr - `PATCH0_LO) - `PATCH_ID_LO] <= otp_data_out;
-                    else if ((addr - `PATCH0_LO) == `PATCH_VALID_BIT)
+                if (addr_d >= `PATCH0_LO && addr_d <= `PATCH0_HI) begin
+                    if ((addr_d - `PATCH0_LO) <= `PATCH_TAG_HI)
+                        patch0_tag[addr_d - `PATCH0_LO] <= otp_data_out;
+                    else if ((addr_d - `PATCH0_LO) <= `PATCH_DATA_HI)
+                        patch0_data[(addr_d - `PATCH0_LO) - `PATCH_DATA_LO] <= otp_data_out;
+                    else if ((addr_d - `PATCH0_LO) <= `PATCH_ID_HI)
+                        patch0_id[(addr_d - `PATCH0_LO) - `PATCH_ID_LO] <= otp_data_out;
+                    else if ((addr_d - `PATCH0_LO) == `PATCH_VALID_BIT)
                         patch0_valid_bit <= otp_data_out;
                 end
 
                 // Patch 1 Accumulation
-                if (addr >= `PATCH1_LO && addr <= `PATCH1_HI) begin
-                    if ((addr - `PATCH1_LO) <= `PATCH_TAG_HI)
-                        patch1_tag[addr - `PATCH1_LO] <= otp_data_out;
-                    else if ((addr - `PATCH1_LO) <= `PATCH_DATA_HI)
-                        patch1_data[(addr - `PATCH1_LO) - `PATCH_DATA_LO] <= otp_data_out;
-                    else if ((addr - `PATCH1_LO) <= `PATCH_ID_HI)
-                        patch1_id[(addr - `PATCH1_LO) - `PATCH_ID_LO] <= otp_data_out;
-                    else if ((addr - `PATCH1_LO) == `PATCH_VALID_BIT)
+                if (addr_d >= `PATCH1_LO && addr_d <= `PATCH1_HI) begin
+                    if ((addr_d - `PATCH1_LO) <= `PATCH_TAG_HI)
+                        patch1_tag[addr_d - `PATCH1_LO] <= otp_data_out;
+                    else if ((addr_d - `PATCH1_LO) <= `PATCH_DATA_HI)
+                        patch1_data[(addr_d - `PATCH1_LO) - `PATCH_DATA_LO] <= otp_data_out;
+                    else if ((addr_d - `PATCH1_LO) <= `PATCH_ID_HI)
+                        patch1_id[(addr_d - `PATCH1_LO) - `PATCH_ID_LO] <= otp_data_out;
+                    else if ((addr_d - `PATCH1_LO) == `PATCH_VALID_BIT)
                         patch1_valid_bit <= otp_data_out;
                 end
             end

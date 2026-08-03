@@ -18,8 +18,7 @@ echo " Reading design RTL"
 echo "-------------------------------------------------"
 
 # Read the Verilog design
-set file_list {+incdir+../rtl_sources \
-                ../rtl_sources/crc16_ccitt.v \
+set file_list {../rtl_sources/crc16_ccitt.v \
                 ../rtl_sources/otp_controller.v \
                }
 # ../rtl_sources/otp_sim_rom.v

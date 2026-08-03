@@ -32,4 +32,4 @@ set_db library $library
 set_db script_search_path { . ./scripts }
 
 
-# set_db init_hdl_search_path { . ../rtl_sources }
+set_db init_hdl_search_path { . ../rtl_sources }

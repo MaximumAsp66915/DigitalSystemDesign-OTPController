@@ -1,6 +1,18 @@
 `timescale 1ns/1ps
 `include "otp_map.vh"
 
+
+// POSTSYN_SIM is passed in from the
+// simulation script:
+//   functional sim : xrun ... (no +define+POSTSYN_SIM)       -> func_sim.tcl
+//   post-syn sim   : xrun ... +define+POSTSYN_SIM            -> post_syn_sim.tcl
+// so this file never needs to change between the two run modes.
+
+`ifdef POSTSYN_SIM
+    `include "/home/cad/TECH.D/TSMC180/Verilog/tsmc18.v"
+    `include "../synthesis/synout/otp_controller_postsyn.v"
+`endif
+
 // ===========================================================================
 // tb_otp_controller.v
 //
@@ -25,9 +37,10 @@ module tb_otp_controller;
     // -----------------------------------------------------------------
     // Clock / reset
     // -----------------------------------------------------------------
+    localparam real CLK_PERIOD_NS = 7629.39;
     reg clk = 1'b0;
     reg rst_n;
-    always #5 clk = ~clk; // 10 ns period
+    always #(CLK_PERIOD_NS/2.0) clk = ~clk;
 
     // -----------------------------------------------------------------
     // DUT <-> ROM wiring
@@ -263,6 +276,12 @@ module tb_otp_controller;
     integer i;
 
     initial begin
+
+`ifdef POSTSYN_SIM
+        $sdf_annotate("../synthesis/synout/otp_controller_postsyn.sdf", u_dut, , , "MAXIMUM");
+        $display("[POSTSYN] SDF annotation requested at t=%0t -- check the log above/below for Xcelium's annotation summary.", $time);
+`endif
+
         $readmemh("../rtl_sources/otp_image.mem", golden_img);
 
         rst_n = 1'b0;

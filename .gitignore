@@ -10,7 +10,7 @@
 /workspace(prev)/
 
 # synthesis outputs
-
+synout/
 
 # MacOS files
 .DS_store

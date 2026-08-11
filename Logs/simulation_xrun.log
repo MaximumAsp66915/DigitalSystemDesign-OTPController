@@ -1,0 +1,135 @@
+xrun: 22.03-s001: (c) Copyright 1995-2022 Cadence Design Systems, Inc.
+TOOL:	xrun	22.03-s001: Started on Aug 11, 2026 at 14:14:05 +0330
+xrun
+	-gui
+	-ieee1364
+	-sv
+	-disable_sem2009
+	-access +rwc
+	-top tb_otp_controller
+	+incdir+../rtl_sources
+	../rtl_sources/crc16_ccitt.v
+	../rtl_sources/otp_controller.v
+	../rtl_sources/otp_sim_rom.v
+	../rtl_sources/tb_otp_controller.v
+file: ../rtl_sources/crc16_ccitt.v
+	module worklib.crc16_ccitt:v
+		errors: 0, warnings: 0
+file: ../rtl_sources/otp_controller.v
+	module worklib.otp_controller:v
+		errors: 0, warnings: 0
+file: ../rtl_sources/otp_sim_rom.v
+	module worklib.otp_sim_rom:v
+		errors: 0, warnings: 0
+file: ../rtl_sources/tb_otp_controller.v
+	module worklib.tb_otp_controller:v
+		errors: 0, warnings: 0
+	Elaborating the design hierarchy:
+		Caching library 'worklib' ....... Done
+	Top level design units:
+		tb_otp_controller
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.crc16_ccitt:v <0x6c6fc62c>
+			streams:   3, words:  1495
+		worklib.otp_controller:v <0x7ac219e1>
+			streams:  73, words: 37892
+		worklib.tb_otp_controller:v <0x10ee574c>
+			streams:  20, words: 42847
+		worklib.otp_sim_rom:v <0x7ea7f9ca>
+			streams:   3, words:   952
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 4       4
+		Registers:             114     114
+		Scalar wires:           31       -
+		Vectored wires:         15       -
+		Always blocks:           9       9
+		Initial blocks:          5       5
+		Cont. assignments:       5      19
+		Pseudo assignments:      3       3
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.tb_otp_controller:v
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+
+-------------------------------------
+Relinquished control to SimVision...
+xcelium> 
+xcelium> source /home/cad/cadence/XCELIUM220/tools/xcelium/files/xmsimrc
+xcelium> run
+
+=====================================================
+ TEST 1: Reset and initial read
+=====================================================
+  [PASS] busy is low while rst_n is held low
+  [PASS] otp_read_en is low while rst_n is held low
+  [PASS] no busy glitch observed during reset
+  (rst_n released)
+  [PASS] busy asserts shortly after reset release
+  [PASS] busy stays asserted continuously until done
+  [PASS] done pulses after load sequence
+  [PASS] done deasserts one cycle after asserting (single-cycle pulse)
+  [PASS] busy is low immediately after done
+  [PASS] otp_read_en swept every address 0..255 at least once
+  [PASS] no further OTP reads occur after done (until next reset)
+
+=====================================================
+ TEST 2: Correct field extraction (golden image, no valid patches)
+=====================================================
+  [PASS] T2: RO_TRIM_CODE matches golden image
+  [PASS] T2: TC1_COEFF matches golden image
+  [PASS] T2: TC2_COEFF matches golden image
+  [PASS] T2: AGING_BASE matches golden image
+  [PASS] T2: SKU_CODE matches golden image
+  [PASS] T2: TEMP_RO_TRIM matches golden image
+  [PASS] T2: REV_ID matches golden image
+  [PASS] T2: CFG_FLAGS matches golden image
+  [PASS] T2: RATIO_P0 matches golden image
+  [PASS] T2: RATIO_P1 matches golden image
+  [PASS] T2: RATIO_P2 matches golden image
+  [PASS] T2: RATIO_P3 matches golden image
+  [PASS] T2: RATIO_P4 matches golden image
+
+=====================================================
+ TEST 3: Patch override (Patch0 overrides RO_TRIM_CODE)
+=====================================================
+  [PASS] watchdog: done asserted before timeout
+  [PASS] T3: RO_TRIM_CODE overridden by valid Patch0
+  [PASS] T3: TC1_COEFF unaffected by patch (Bank0 value retained)
+  [PASS] T3: CFG_FLAGS unaffected by patch (Bank0 value retained)
+  [PASS] T3: CRC valid for this image
+
+=====================================================
+ TEST 4: Multiple patches on same field (Patch1 precedence)
+=====================================================
+  [PASS] watchdog: done asserted before timeout
+  [PASS] T4: Patch1 overrides Patch0 on the same field
+  [PASS] T4: CRC valid for this image
+
+=====================================================
+ TEST 5: Invalid patch is ignored
+=====================================================
+  [PASS] watchdog: done asserted before timeout
+  [PASS] T5a: PATCH_VALID=0 is ignored, Bank0 value retained
+  [PASS] watchdog: done asserted before timeout
+  [PASS] T5b: PATCH_TAG mismatch is ignored, Bank0 value retained
+
+=====================================================
+ TEST 6: CRC error detection
+=====================================================
+  [PASS] watchdog: done asserted before timeout
+  [PASS] T6a: crc_error is low when stored CRC matches computed CRC
+  [PASS] watchdog: done asserted before timeout
+  [PASS] T6b: crc_error is high when stored CRC does not match computed CRC
+
+=====================================================
+ SUMMARY: 39 PASSED, 0 FAILED (of 39 checks)
+=====================================================
+ RESULT: ALL TESTS PASSED
+Simulation complete via $finish(1) at time 17238606705 PS + 0
+../rtl_sources/tb_otp_controller.v:491         $finish;
+xcelium> ^C
+xcelium> exit
+TOOL:	xrun	22.03-s001: Exiting on Aug 11, 2026 at 14:17:11 +0330  (total: 00:03:06)

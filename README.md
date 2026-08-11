@@ -86,12 +86,11 @@ To clone the repository and run the functional verification suite locally:
 2. Execute the Compile & Simulation Flow:
 Open your target EDA simulator tool environment, map the compilation source index to the files located inside the design/ path, and launch execution on the testbench module:
 
-👥 Contributors (Group Members)
+## 👥 Contributors (Group Members)
 
-- Member 1 - RTL Architecture & FSM Design - GitHub Profile
-
-- Member 2 - Verification, Testbench Development & Coverage - GitHub Profile
-
-- Member 3 - Synthesis Run, Constraints Tuning & Netlist Validation - GitHub Profile
-
-- Member 4 - Synthesis Run, Constraints Tuning & Netlist Validation - GitHub Profile
+| Member | Role | GitHub |
+| :--- | :--- | :---: |
+| **Member 1** | RTL Architecture & FSM Design | [<img src="https://img.shields.io/badge/GitHub-Sin--a--H-181717?style=for-the-badge&logo=github&logoColor=white" height="28" alt="Sin-a-H GitHub">](https://github.com/Sin-a-H) |
+| **Member 2** | Verification, Testbench Development & Coverage | [<img src="https://img.shields.io/badge/GitHub-MaximumAsp66915-181717?style=for-the-badge&logo=github&logoColor=white" height="28" alt="MaximumAsp66915 GitHub">](https://github.com/MaximumAsp66915) |
+| **Member 3** | Synthesis Run, Constraints Tuning & Netlist Validation | [<img src="https://img.shields.io/badge/GitHub-ErikHartouni-181717?style=for-the-badge&logo=github&logoColor=white" height="28" alt="ErikHartouni GitHub">](https://github.com/ErikHartouni) |
+| **Member 4** | Synthesis Run, Constraints Tuning & Netlist Validation | *No Github - Ali Behrad* |
